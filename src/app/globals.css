@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-harbor-dark text-white antialiased;
+  }
+
+  ::selection {
+    @apply bg-burgundy/80 text-white;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .luxury-border {
+    @apply border border-white/10;
+  }
+
+  .gold-line {
+    @apply h-px w-16 bg-gold;
+  }
+}
