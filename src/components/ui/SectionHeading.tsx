@@ -9,6 +9,27 @@ interface SectionHeadingProps {
   className?: string;
 }
 
+function OrnamentDivider({ align }: { align: "left" | "center" }) {
+  if (align === "center") {
+    return (
+      <div className="my-7 flex items-center justify-center gap-3">
+        <div className="h-px w-12 bg-gold/40" />
+        <div className="h-[5px] w-[5px] rotate-45 bg-gold/70" />
+        <div className="h-px w-4 bg-gold/40" />
+        <div className="h-[5px] w-[5px] rotate-45 bg-gold/70" />
+        <div className="h-px w-12 bg-gold/40" />
+      </div>
+    );
+  }
+  return (
+    <div className="my-7 flex items-center gap-3">
+      <div className="h-px w-12 bg-gold" />
+      <div className="h-[5px] w-[5px] rotate-45 bg-gold/80" />
+      <div className="h-px w-4 bg-gold/50" />
+    </div>
+  );
+}
+
 export function SectionHeading({
   eyebrow,
   title,
@@ -25,16 +46,16 @@ export function SectionHeading({
       )}
     >
       {eyebrow && (
-        <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-gold">
+        <p className="mb-4 text-[10px] font-medium uppercase tracking-[0.4em] text-gold/80">
           {eyebrow}
         </p>
       )}
-      <h2 className="font-display text-3xl font-light leading-tight text-white md:text-4xl lg:text-5xl">
+      <h2 className="font-display text-4xl font-light leading-[1.1] text-white md:text-5xl lg:text-6xl">
         {title}
       </h2>
-      <div className={cn("gold-line my-6", align === "center" && "mx-auto")} />
+      <OrnamentDivider align={align} />
       {description && (
-        <p className="text-base leading-relaxed text-white/70 md:text-lg">
+        <p className="text-base leading-relaxed text-white/65 md:text-lg">
           {description}
         </p>
       )}

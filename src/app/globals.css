@@ -9,10 +9,31 @@
 
   body {
     @apply bg-harbor-dark text-white antialiased;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  }
+
+  /* Refined scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-harbor-dark;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gold/30;
+    border-radius: 0;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gold/50;
   }
 
   ::selection {
     @apply bg-burgundy/80 text-white;
+  }
+
+  /* Cormorant Garamond display font optimisation */
+  .font-display {
+    font-feature-settings: "lnum" 1, "kern" 1;
   }
 }
 
@@ -27,5 +48,26 @@
 
   .gold-line {
     @apply h-px w-16 bg-gold;
+  }
+
+  /* Ornamental divider — diamond + lines */
+  .ornament-divider {
+    @apply flex items-center gap-3;
+  }
+  .ornament-divider::before,
+  .ornament-divider::after {
+    content: "";
+    @apply flex-1 h-px bg-gradient-to-r from-transparent to-gold/40;
+  }
+  .ornament-divider::after {
+    @apply bg-gradient-to-l from-transparent to-gold/40;
+  }
+
+  /* Image hover scale */
+  .img-hover-scale {
+    @apply transition-transform duration-700 ease-luxury;
+  }
+  .group:hover .img-hover-scale {
+    @apply scale-105;
   }
 }
